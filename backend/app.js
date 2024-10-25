@@ -25,6 +25,11 @@ app.post('/greet', (req, res) => {
     res.render('greet', {message:'Benvenuto', name: name });
 });
 
+app.post('/logout',(req,res) => {
+    res.clearCookie('name');
+    res.redirect('/');
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
